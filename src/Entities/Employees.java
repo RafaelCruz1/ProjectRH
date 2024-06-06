@@ -66,11 +66,4 @@ public class Employees {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Funcionario: " +
-                "Registro = " + id +
-                ", Name = " + name +
-                ", Numero de telefone = " + phoneNumber;
-    }
 }

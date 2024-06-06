@@ -1,19 +1,16 @@
 package Services;
 
 import Entities.Employees;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RegisterEmployee {
 
-    ArrayList<Employees> emp = new ArrayList<>();
-
     public void registerEmployee(){
         Scanner sc = new Scanner(System.in);
         Employees employees = new Employees();
+        ListEmployee listEmployee = new ListEmployee();
 
-        int id = emp.size()+1;
+        int id = listEmployee.employeesList.size()+1;
         System.out.println("Digite o nome: ");
         String name = sc.nextLine();
         System.out.println("Digite o CPF: ");
@@ -33,10 +30,6 @@ public class RegisterEmployee {
         employees.setPhoneNumber(phoneNumber);
         employees.setEmail(email);
 
-        emp.add(employees);
-
-
-        System.out.println(employees);
-
+        listEmployee.employeesList.add(employees);
     }
 }
