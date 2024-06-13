@@ -1,6 +1,7 @@
 package Application;
 
-import Services.ListEmployee;
+
+import Services.EmployeeDatabase;
 import Services.RegisterEmployee;
 import Services.ResignationEmployee;
 
@@ -9,48 +10,51 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
+        EmployeeDatabase database = new EmployeeDatabase();
+        RegisterEmployee registerEmployee = new RegisterEmployee();
+        ResignationEmployee resignationEmployee = new ResignationEmployee();
 
-        System.out.println("Deseja continuar? [S/N]");
-        String seContinua = sc.nextLine();
+        int cont;
 
-        while (seContinua.equalsIgnoreCase("S")) {
-            ListEmployee listEmployee = new ListEmployee();
-            RegisterEmployee registerEmployee = new RegisterEmployee();
-            ResignationEmployee resignationEmployee = new ResignationEmployee();
-
-            int adicionar;
-            int i = 0;
-            String resposta;
-
-            System.out.println("Para adicionar funcionario digite \"add\". ");
-            System.out.println("Para excluir funcionario digite \"del\". ");
-            System.out.println("Para encerrar a aplicacão \"fin\". ");
+        do {
+            System.out.println("*** Para adicionar funcionario digite \"1\". ***");
+            System.out.println("*** Para excluir funcionario digite \"2\". ***");
+            System.out.println("*** Para encerrar a aplicacão \"3\". ***");
             System.out.println();
             System.out.println("Digite a opção: ");
-            resposta = sc.next();
+            int resposta = sc.nextInt();
 
-            if (resposta.equalsIgnoreCase("add")) {
-                System.out.println("Deseja adicionar quantos funcionarios? ");
-                adicionar = sc.nextInt();
-                while (i < adicionar) {
-                    registerEmployee.registerEmployee();
-                    System.out.println("Usuario registrado");
-                    i++;
-                }
-            } else if (resposta.equalsIgnoreCase("del")) {
-                resignationEmployee.resignationEmployee();
-            } else if (resposta.equalsIgnoreCase("fin")) {
-                System.out.println("Lista de funcionarios: ");
-                listEmployee.showList();
+            switch (resposta) {
+                case 1:
+                    System.out.println("==========Adicionando funcionario.==========");
+                    System.out.println("Deseja adicionar quantos funcionarios? ");
+                    int adicionar = sc.nextInt();
+                    int i = 0;
+                    while (i < adicionar) {
+                        registerEmployee.registerEmployee();
+                        System.out.println("Usuario registrado");
+                        i++;
+                    }
+                    database.showList();
+                    break;
 
-                break;
-            } else {
-                break;
+                case 2:
+                    System.out.println("=============Excluindo funcionario.===========");
+                    resignationEmployee.resignationEmployee();
+                    database.showList();
+                    break;
+
+                case 3:
+                    System.out.println("============Finalizando.============");
+                    System.out.println("Lista de funcionarios: ");
+                    database.showList();
+                    break;
             }
-
-        }
+            System.out.println("Continua? 1 para SIM e 2 para NAO");
+            cont = sc.nextInt();
+        } while (cont == 1);
+        System.out.println("Ok");
     }
 }
 
