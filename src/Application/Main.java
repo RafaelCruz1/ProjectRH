@@ -15,6 +15,7 @@ public class Main {
         RegisterEmployee registerEmployee = new RegisterEmployee();
         ResignationEmployee resignationEmployee = new ResignationEmployee();
 
+
         int cont;
 
         do {
@@ -38,13 +39,12 @@ public class Main {
                     }
                     database.showList();
                     break;
-
                 case 2:
                     System.out.println("=============Excluindo funcionario.===========");
+
                     resignationEmployee.resignationEmployee();
                     database.showList();
                     break;
-
                 case 3:
                     System.out.println("============Finalizando.============");
                     System.out.println("Lista de funcionarios: ");
@@ -53,8 +53,10 @@ public class Main {
             }
             System.out.println("Continua? 1 para SIM e 2 para NAO");
             cont = sc.nextInt();
+
         } while (cont == 1);
         System.out.println("Ok");
+
     }
 }
 

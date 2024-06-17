@@ -8,7 +8,6 @@ public class ResignationEmployee {
 
     public void resignationEmployee() {
         EmployeeDatabase empDB = new EmployeeDatabase();
-        Employees employees = new Employees();
 
         Scanner scanner = new Scanner(System.in);
 
