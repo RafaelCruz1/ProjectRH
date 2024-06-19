@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class RegisterEmployee {
     EmployeeDatabase employeeDatabase = new EmployeeDatabase();
+    Employees employees = new Employees();
 
     public void registerEmployee() {
         Scanner sc = new Scanner(System.in);
@@ -22,6 +23,8 @@ public class RegisterEmployee {
         System.out.println("Digite o email: ");
         String email = sc.nextLine();
 
+        employees.toString();
         employeeDatabase.employeesList.add(new Employees(id,name,cpf,gender,phoneNumber,email));
+
     }
 }
