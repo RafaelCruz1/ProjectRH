@@ -14,7 +14,7 @@ public class RegisterEmployee {
         System.out.println("Digite o nome: ");
         String name = sc.nextLine();
         System.out.println("Digite o CPF: ");
-        Long cpf = sc.nextLong();
+        String cpf = sc.nextLine();
         System.out.println("Digite o genero: ");
         String gender = sc.next();
         System.out.println("Digite o numero de telefone: ");
@@ -23,7 +23,14 @@ public class RegisterEmployee {
         System.out.println("Digite o email: ");
         String email = sc.nextLine();
 
-        employees.toString();
+        employees.setId(id);
+        employees.setName(name);
+        employees.setCpf(cpf);
+        employees.setGender(gender);
+        employees.setPhoneNumber(phoneNumber);
+        employees.setEmail(email);
+        System.out.println(employees.toString());
+
         employeeDatabase.employeesList.add(new Employees(id,name,cpf,gender,phoneNumber,email));
 
     }

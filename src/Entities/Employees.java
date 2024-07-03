@@ -3,7 +3,7 @@ package Entities;
 public class Employees {
     private int id;
     private String name;
-    private long cpf;
+    private String cpf;
     private String gender;
     private long phoneNumber;
     private String email;
@@ -11,7 +11,7 @@ public class Employees {
     public Employees() {
     }
 
-    public Employees(int id, String name, long cpf, String gender, long phoneNumber, String email) {
+    public Employees(int id, String name, String cpf, String gender, long phoneNumber, String email) {
         this.name = name;
         this.cpf = cpf;
         this.phoneNumber = phoneNumber;
@@ -34,11 +34,11 @@ public class Employees {
         this.name = name;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
